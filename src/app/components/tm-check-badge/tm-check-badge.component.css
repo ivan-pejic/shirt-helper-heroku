@@ -1,0 +1,39 @@
+div span.yellow,
+div span.yellow a:link {
+  color: white;
+  background-color: #d9d946;
+  text-decoration: none;
+  cursor: unset;
+}
+
+div span.green,
+div span.green a:link {
+  color: white;
+  background-color: green;
+  text-decoration: none;
+  cursor: unset;
+}
+
+div {
+  color: white;
+  display: flex;
+  text-align: center;
+}
+div span,
+div span a:link {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(194, 49, 49);
+  border-radius: 0.4em;
+  padding: 0 0.8em;
+  float: left;
+  margin-right: 0.8em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  cursor: pointer;
+  text-decoration: underline;
+}
+a {
+  color: inherit;
+}

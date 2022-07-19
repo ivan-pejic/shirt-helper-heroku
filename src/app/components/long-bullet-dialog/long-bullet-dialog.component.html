@@ -1,0 +1,106 @@
+<div class="wrapper">
+  <div class="leftArrow">
+    <app-change-shirt [id]="shirt.id" [mode]="'<'"></app-change-shirt>
+  </div>
+  <div class="content">
+    <app-amazon-autocomplete></app-amazon-autocomplete>
+    <form class="example-form" #shirtForm="ngForm">
+      <h1>Shirt {{ shirt.id + 1 }}</h1>
+      <div class="imageWrapper" (click)="openDialog()" *ngIf="shirt.image">
+        <img [src]="shirt.image" />
+      </div>
+      <a [href]="shirt.link" target="_blank" *ngIf="shirt.link">Link</a>
+
+      <div *ngIf="!shirt.isLong">
+        <mat-slide-toggle
+          [(ngModel)]="shirt.isText"
+          name="isText"
+          color="primary"
+          >{{ shirt.isText === true ? "Text" : "Picture" }}</mat-slide-toggle
+        >
+      </div>
+      <div>
+        <h3>Brand:</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>{{ shirt.brand.length }}/50</mat-label>
+          <textarea
+            cdkFocusInitial
+            name="brand"
+            ngModel
+            matInput
+            placeholder="Enter Brand"
+            cdkTextareaAutosize
+            cdkAutosizeMaxRows="1"
+            maxlength="256"
+            (focusout)="checkTrademark(shirt.brand, $event)"
+            [(ngModel)]="shirt.brand"
+          ></textarea>
+        </mat-form-field>
+        <app-tm-check-badge [tms]="shirt.trademarks.brand"></app-tm-check-badge>
+
+        <h3>Title:</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>{{ shirt.title.length }}/60</mat-label>
+          <textarea
+            name="title"
+            ngModel
+            matInput
+            placeholder="Enter Title"
+            cdkTextareaAutosize
+            cdkAutosizeMaxRows="1"
+            maxlength="256"
+            (focusout)="checkTrademark(shirt.title, $event)"
+            [(ngModel)]="shirt.title"
+          ></textarea>
+        </mat-form-field>
+        <app-tm-check-badge [tms]="shirt.trademarks.title"></app-tm-check-badge>
+
+        <h3>BP1:</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>{{ shirt.bp1.length }}/256</mat-label>
+          <textarea
+            name="bp1"
+            ngModel
+            matInput
+            placeholder="Enter BP1"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="4"
+            cdkAutosizeMaxRows="4"
+            maxlength="356"
+            (focusout)="checkTrademark(shirt.bp1, $event)"
+            [(ngModel)]="shirt.bp1"
+          ></textarea>
+        </mat-form-field>
+        <app-tm-check-badge [tms]="shirt.trademarks.bp1"></app-tm-check-badge>
+
+        <h3>BP2:</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>{{ shirt.bp2.length }}/256</mat-label>
+          <textarea
+            name="bp2"
+            ngModel
+            matInput
+            placeholder="Enter BP2"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="4"
+            cdkAutosizeMaxRows="4"
+            maxlength="356"
+            (focusout)="checkTrademark(shirt.bp2, $event)"
+            [(ngModel)]="shirt.bp2"
+          ></textarea>
+        </mat-form-field>
+        <app-tm-check-badge [tms]="shirt.trademarks.bp2"></app-tm-check-badge>
+      </div>
+    </form>
+    <button mat-raised-button color="accent" (click)="changeType()">
+      Change Shirt Type
+    </button>
+  </div>
+  <div class="rightArrow">
+    <app-change-shirt [id]="shirt.id" [mode]="'>'"></app-change-shirt>
+  </div>
+</div>
+<!---<button mat-button (click)="checkTrademark(shirtForm.value)">
+  Search Trademarks
+</button>-->
+<!---<div>{{ trademark | json }}</div>-->

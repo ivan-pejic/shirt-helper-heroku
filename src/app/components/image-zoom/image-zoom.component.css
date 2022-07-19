@@ -1,0 +1,13 @@
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 70rem;
+  max-height: 50rem;
+  background-color: lightgray;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  background-color: lightgray;
+}

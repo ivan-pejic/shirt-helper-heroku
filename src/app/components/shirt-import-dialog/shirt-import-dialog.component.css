@@ -1,0 +1,10 @@
+.wrapper {
+  width: 35rem;
+  height: 23rem;
+}
+mat-tab {
+  padding: 24px;
+}
+mat-form-field {
+  width: 25rem;
+}

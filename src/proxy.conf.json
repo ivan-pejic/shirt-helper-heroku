@@ -1,0 +1,21 @@
+{
+  "/api": {
+    "target": "http://tmhunt.com/",
+    "pathRewrite": {
+      "^/api/": ""
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+
+  "/amazon": {
+    "target": "https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=",
+    "pathRewrite": {
+      "^/amazon/": ""
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
