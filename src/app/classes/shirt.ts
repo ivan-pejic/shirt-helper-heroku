@@ -48,7 +48,8 @@ export class Shirt {
       let str = this.link.substring(this.link.indexOf('dp/') + 4);
       if (str.indexOf('/') !== -1) str = str.substring(0, str.indexOf('/'));
 
-      this.image = 'http://images.amazon.com/images/P/' + str + '.LZZZZZZZ.jpg';
+      this.image =
+        'http://images.amazon.com/images/P/' + str + '._PE30_PI_UL1500_.jpg';
     }
   }
 }
