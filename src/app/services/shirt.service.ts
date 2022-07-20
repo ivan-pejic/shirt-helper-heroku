@@ -57,7 +57,8 @@ export class ShirtService {
     const body = `query=${query}`;
 
     results = this.http
-      .post(`/api/ngrams.php`, body, this.options)
+      //.post(`/api/ngrams.php`, body, this.options)
+      .post(`http://tmhunt.com/ngrams.php`, body, this.options)
       .subscribe((response) => {
         results = response;
 
