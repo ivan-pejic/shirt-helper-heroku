@@ -3,20 +3,11 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
-app.use(cors());
 
-var corsOptions = {
-  origin: function (origin, callback) {
-    // db.loadOrigins is an example call to load
-    // a list of origins from a backing database
-    db.loadOrigins(function (error, origins) {
-      callback(error, origins);
-    });
-  },
-};
+app.use(cors({ origin: "https://completion.amazon.com" }));
 
 app.use(express.static(__dirname + "/dist"));
-app.get("/*", cors(corsOptions), (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname + "/dist/index.html"));
 });
 
