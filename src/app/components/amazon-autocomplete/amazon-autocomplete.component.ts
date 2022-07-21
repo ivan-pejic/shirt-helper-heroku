@@ -27,7 +27,7 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
 
   options = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'GET',
       'Content-Type': 'application/x-www-form-urlencoded'
     }),
   };
