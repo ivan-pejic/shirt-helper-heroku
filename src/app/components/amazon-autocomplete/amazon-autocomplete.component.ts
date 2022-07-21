@@ -27,7 +27,7 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
 
   options = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     }),
   };
 
@@ -39,7 +39,8 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
           //this.http.get(`/amazon/${this.query}`).subscribe((response) => {
           this.http
             .get(
-              `https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=/${this.query}`,
+              //`https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=/${this.query}`,
+              `http://localhost:8080/amazon/?query=${this.query}`,
               this.options
             )
             .subscribe((response) => {

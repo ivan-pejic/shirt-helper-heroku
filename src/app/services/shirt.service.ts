@@ -54,11 +54,11 @@ export class ShirtService {
     let results!: any;
     let confirmedTM: Trademark = new Trademark();
 
-    const body = `query=${query}`;
+    //const body = `query=${query}`;
 
     results = this.http
       //.post(`/api/ngrams.php`, body, this.options)
-      .post(`http://tmhunt.com/ngrams.php`, body, this.options)
+      .get(`http://localhost:8080/tmhunt/?query=${query}`, this.options)
       .subscribe((response) => {
         results = response;
 
