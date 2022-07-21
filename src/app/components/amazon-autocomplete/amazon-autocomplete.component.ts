@@ -27,8 +27,8 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
 
   options = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': '*',
+      'Access-Control-Allow-Origin': 'https://shirt-helper.netlify.app',
+      'Access-Control-Allow-Methods': 'GET',
       'Access-Control-Allow-Headers': '*',
       'Content-Type': 'application/x-www-form-urlencoded'
     }),
