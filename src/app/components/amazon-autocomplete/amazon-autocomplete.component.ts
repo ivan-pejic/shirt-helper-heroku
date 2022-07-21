@@ -26,10 +26,10 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
   }
 
   options = {
-    headers: new HttpHeaders().set(
-      'Content-Type',
-      'application/x-www-form-urlencoded'
-    ),
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
   };
 
   ngAfterViewInit(): void {
