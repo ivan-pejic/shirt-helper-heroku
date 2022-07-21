@@ -4,26 +4,17 @@ const path = require("path");
 
 const app = express();
 
-app.use(cors({ origin: "https://completion.amazon.com" }));
+app.use(cors());
+
+app.all('/*', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+  next();
+});
 
 app.use(express.static(__dirname + "/dist"));
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname + "/dist/index.html"));
-});
-
-// Add headers
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://completion.amazon.com/"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
 });
 
 app.listen(process.env.PORT || 8080);
