@@ -13,8 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/tmhunt/", async (req, response) => {
   await axiosPost(
-    //"http://tmhunt.com/ngrams.php",
-    "https://www.google.com/",
+    "http://tmhunt.com/ngrams.php",    
     qs.stringify({ query: req.query.query })
   ).then((res) => {
     response.send(res.data);
