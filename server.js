@@ -20,11 +20,11 @@ app.get("/tmhunt/", async (req, response) => {
   });
 });
 
-app.get("/amazon/", async (req, res) => {
+app.get("/amazon/", async (req, response) => {
   await axiosGet(
     `https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=/${req.query.query}`
   ).then((res) => {
-    res.send(res.data);
+    response.send(res.data);
   });
 });
 
