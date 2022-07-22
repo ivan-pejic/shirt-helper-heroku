@@ -61,6 +61,7 @@ export class ShirtService {
       .get(`http://localhost:8080/tmhunt/?query=${query}`, this.options)
       .subscribe((response) => {
         results = response;
+      console.log(response);
 
         for (let result of results) {
           if (
