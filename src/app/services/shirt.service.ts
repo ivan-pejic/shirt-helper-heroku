@@ -61,7 +61,7 @@ export class ShirtService {
       .get(`http://localhost:8080/tmhunt/?query=${query}`, this.options)
       .subscribe((response) => {
         results = response;
-
+     
         for (let result of results) {
           if (
             result[2] === 'LIVE' && //check if tm is live
