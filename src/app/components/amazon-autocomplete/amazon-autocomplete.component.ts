@@ -25,12 +25,6 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  options = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-    }),
-  };
-
   ngAfterViewInit(): void {
     this.sub = fromEvent(this.search.nativeElement, 'keyup')
       .pipe(debounceTime(500))
@@ -40,9 +34,7 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
           this.http
             .get(
               //`https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=/${this.query}`,
-              //`http://localhost:8080/amazon/?query=${this.query}`,
-              `/amazon/?query=${this.query}`,
-              this.options
+              `/amazon/?query=${this.query}`
             )
             .subscribe((response) => {
               this.suggestions = response;
