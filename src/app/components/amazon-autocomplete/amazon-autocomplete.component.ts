@@ -40,7 +40,8 @@ export class AmazonAutocompleteComponent implements AfterViewInit, OnDestroy {
           this.http
             .get(
               //`https://completion.amazon.com/search/complete?search-alias=aps&client=amazon-search-ui&mkt=1&q=/${this.query}`,
-              `http://localhost:8080/amazon/?query=${this.query}`,
+              //`http://localhost:8080/amazon/?query=${this.query}`,
+              `/amazon/?query=${this.query}`,
               this.options
             )
             .subscribe((response) => {
