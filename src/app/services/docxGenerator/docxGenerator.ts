@@ -120,10 +120,10 @@ export class DocumentCreator {
         }
       }
 
+      const endText = shirt.isText ? " '" : '';
+
       topDescription =
-        topDescription + this.isText(shirt) + shirt.bp1 + shirt.isText
-          ? " '"
-          : '';
+        topDescription + this.isText(shirt) + shirt.bp1 + endText;
       bottomDescription =
         bottomDescription[0].toUpperCase() + bottomDescription.slice(1);
       topDescription =
