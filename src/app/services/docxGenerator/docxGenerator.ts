@@ -97,9 +97,9 @@ export class DocumentCreator {
   }
 
   description(shirt: Shirt) {
-    var BpArray: string[] = [];
-    var topDescription: string = '';
-    var bottomDescription: string = '';
+    let BpArray: string[] = [];
+    let topDescription: string = '';
+    let bottomDescription: string = '';
 
     if (shirt.bp2 == '') {
       return [
@@ -109,7 +109,7 @@ export class DocumentCreator {
     } else {
       BpArray = shirt.bp2.split(' ');
 
-      var isTop: boolean = true;
+      let isTop: boolean = true;
       for (let i = 1; i < BpArray.length; i++) {
         if (BpArray[i] != 'is' && isTop === true)
           topDescription = topDescription + BpArray[i] + ' ';
@@ -120,7 +120,10 @@ export class DocumentCreator {
         }
       }
 
-      topDescription = topDescription + this.isText(shirt) + shirt.bp1 + " '";
+      topDescription =
+        topDescription + this.isText(shirt) + shirt.bp1 + shirt.isText
+          ? " '"
+          : '';
       bottomDescription =
         bottomDescription[0].toUpperCase() + bottomDescription.slice(1);
       topDescription =
